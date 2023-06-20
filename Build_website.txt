@@ -1,0 +1,53 @@
+To build a website that facilitates the hiring of drones with operators for various agricultural and mapping activities, as well as the sale of non-commercial mini drones, you would need a database schema to store and manage the relevant information. Here's a suggested database schema for your project:
+
+Users Table:
+user_id (Primary Key)
+username
+password
+email
+phone
+address
+role (customer, operator, admin)
+
+Drones Table:
+drone_id (Primary Key)
+drone_name
+description
+drone_type
+hourly_rate
+availability_status
+operator_id (Foreign Key referencing Operators Table)
+is_available_for_sale
+
+Operators Table:
+operator_id (Primary Key)
+operator_name
+operator_phone
+operator_email
+operator_rating
+
+Activities Table:
+activity_id (Primary Key)
+activity_name
+Drone_Activities Table (Many-to-Many relationship between Drones and Activities):
+drone_id (Foreign Key referencing Drones Table)
+activity_id (Foreign Key referencing Activities Table)
+
+Orders Table:
+order_id (Primary Key)
+user_id (Foreign Key referencing Users Table)
+drone_id (Foreign Key referencing Drones Table)
+start_date
+end_date
+total_cost
+order_status
+
+Mini_Drones Table:
+mini_drone_id (Primary Key)
+mini_drone_name
+mini_drone_description
+mini_drone_price
+is_available_for_sale
+With this schema, you can store user information, details of available drones and operators, supported activities, orders placed by customers, and information about mini drones for sale. The tables are related to each other using foreign keys to establish relationships and ensure data integrity.
+
+Remember that this is just a basic schema to get you started. Depending on the specific requirements of your project, you may need to modify or extend the schema.
